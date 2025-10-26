@@ -1,5 +1,5 @@
 project:
-  output-dir: qmd
+  output-dir: _site
   type: book
 
 book:
@@ -8,6 +8,7 @@ book:
   - Lucien Deforge
   - Luca Pallagi
   - Jakub Pilecki
+  
   date: "24.10.2025"
   chapters:
     - index.ipynb
@@ -19,3 +20,6 @@ format:
       - brand
   pdf:
     documentclass: scrreprt
+
+execute:
+  freeze: auto
