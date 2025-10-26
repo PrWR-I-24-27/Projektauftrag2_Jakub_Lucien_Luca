@@ -1,0 +1,49 @@
+name: Render und Publish auf GHP
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+      - feature/quarto_renderer
+    paths:
+      - '**.qmd'
+      - '**.ipynb'
+      - '_quarto.yml'
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Code holen
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Quarto Aufsetzen
+        uses: quarto-dev/quarto-actions/setup@v2
+      
+      - name: Python Aufsetzen
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Pythonsachen installieren
+        run: |
+          pip install -r requirements.txt || true
+
+      - name: Quarto rendern
+        run: |
+          quarto render
+        
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          force_orphan: true
