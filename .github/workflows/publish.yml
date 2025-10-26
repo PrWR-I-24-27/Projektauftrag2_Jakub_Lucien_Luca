@@ -10,6 +10,7 @@ on:
       - '**.qmd'
       - '**.ipynb'
       - '_quarto.yml'
+      - 'publish.yml'
 
 jobs:
   build-deploy:
