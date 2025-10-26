@@ -38,7 +38,7 @@ jobs:
 
       - name: Quarto rendern
         run: |
-          quarto render
+          quarto render --to html
         
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
