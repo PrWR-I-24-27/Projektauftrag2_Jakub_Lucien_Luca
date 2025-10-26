@@ -6,12 +6,7 @@ on:
       - dev
       - main
       - feature/quarto_renderer
-    paths:
-      - '**.qmd'
-      - '**.ipynb'
-      - '_quarto.yml'
-      - 'publish.yml'
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   build-deploy:
@@ -36,7 +31,7 @@ jobs:
       
       - name: Pythonsachen installieren
         run: |
-          pip install -r requirements.txt || true
+          pip install -r requirements.txt
 
       - name: Quarto rendern
         run: |
