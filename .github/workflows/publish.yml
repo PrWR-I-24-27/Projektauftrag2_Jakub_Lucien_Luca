@@ -1,60 +1,27 @@
-name: Render und Publish auf GHP
-
 on:
+  workflow_dispatch:
   push:
     branches:
-      - dev
       - main
-      - feature/quarto_renderer
-  workflow_dispatch:
+      - dev
+
+name: Quarto Publish
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
-      deployments: write
-    
     steps:
-      - name: Code holen
+      - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      
-      - name: Quarto Aufsetzen
+
+      - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-      
-      - name: Python Aufsetzen
-        uses: actions/setup-python@v5
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
         with:
-          python-version: '3.11'
-      
-      - name: Pythonsachen installieren
-        run: |
-          pip install -r requirements.txt
-
-      - name: Quarto rendern
-        run: |
-          quarto render --to html
-      
-      - name: Check _site contents
-        run: ls -R _site
-
-      - name: Create .nojekyll file
-        run: touch _site/.nojekyll
-
-      - name: Show file structure before deploy
-        run: |
-          echo "--- Current Directory ---"
-          ls -R
-          echo "--- _site Directory ---"
-          ls -R _site
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          publish_branch: gh-pages
-          force_orphan: true
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
