@@ -4,6 +4,12 @@ on:
     branches:
       - main
       - dev
+    paths: 
+      - '**.qmd'
+      - '**.ipynb'
+      - '_quarto.yml'
+      - 'publish.yml'
+
 
 name: Quarto Publish
 
