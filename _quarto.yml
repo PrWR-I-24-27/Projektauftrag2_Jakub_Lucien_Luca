@@ -12,14 +12,45 @@ book:
   date: "24.10.2025"
   chapters:
     - index.ipynb
+  
+  downloads: [pdf]
+  navbar: 
+    right: 
+      - icon: github
+        href: "https://github.com/PrWR-I-24-27/Projektauftrag2_Jakub_Lucien_Luca"
+        aria-label: GitHub
+        target: "_blank"
+    search: true
 
 format:
   html:
     theme:
-      - cosmo
+      - zephyr
       - brand
+    code-fold: true
+    code-summary: "Show the code"
+    code-download: true
+    toc: true
+    code-line-numbers: true
+    other-links:
+      - text: Opendata 
+        href: https://opendata.swiss/de
+
   pdf:
     documentclass: scrreprt
+    papersize: letter
+    classoption: 
+      - "DIV=11"
+    number-sections: true
+    toc: true
+    top-level-division: chapter
+    crossref:
+      chapters: true
+    header-includes:
+      - "\\KOMAoption{captions}{tableheading}"
+    block-headings: true
+    code-line-numbers: true
+    break-at-whitespace: true
 
 execute:
   freeze: auto
