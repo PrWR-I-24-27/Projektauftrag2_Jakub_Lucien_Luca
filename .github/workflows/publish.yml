@@ -40,6 +40,9 @@ jobs:
       - name: Check _site contents
         run: ls -R _site
 
+      - name: Create .nojekyll file
+        run: touch _site/.nojekyll
+
       - name: Show file structure before deploy
         run: |
           echo "--- Current Directory ---"
