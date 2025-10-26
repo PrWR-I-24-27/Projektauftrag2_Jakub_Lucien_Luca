@@ -40,7 +40,10 @@ jobs:
       - name: Quarto rendern
         run: |
           quarto render --to html
-        
+      
+      - name: Check _site contents
+        run: ls -R _site
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
