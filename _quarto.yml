@@ -6,8 +6,8 @@ book:
   title: "qmd"
   author: 
   - Lucien Deforge
-  - Luca Pallagi
   - Jakub Pilecki
+  - Luca Pallagi
   date: "24.10.2025"
   chapters:
     - index.ipynb
