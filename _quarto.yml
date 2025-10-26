@@ -1,5 +1,5 @@
 project:
-  output-dir: qmd
+  output-dir: _site
   type: book
 
 book:
