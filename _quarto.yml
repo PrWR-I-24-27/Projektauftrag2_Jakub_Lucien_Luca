@@ -35,6 +35,8 @@ format:
     other-links:
       - text: Opendata 
         href: https://opendata.swiss/de
+      - text: Vorläufige Disposition
+        href: https://github.com/PrWR-I-24-27/Projektauftrag2_Jakub_Lucien_Luca/blob/dev/README.md
 
   pdf:
     documentclass: scrreprt
