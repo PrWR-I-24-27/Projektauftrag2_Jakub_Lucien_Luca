@@ -1,0 +1,58 @@
+project:
+  output-dir: _site
+  type: book
+
+book:
+  title: "Auswirkungen des ÖV auf die Kosten des Wohnens"
+  author: 
+  - Lucien Deforge
+  - Luca Pallagi
+  - Jakub Pilecki
+  
+  date: "24.10.2025"
+  chapters:
+    - index.ipynb
+  
+  downloads: [pdf]
+  navbar: 
+    right: 
+      - icon: github
+        href: "https://github.com/PrWR-I-24-27/Projektauftrag2_Jakub_Lucien_Luca"
+        aria-label: GitHub
+        target: "_blank"
+    search: true
+
+format:
+  html:
+    theme:
+      - zephyr
+      - brand
+    code-fold: true
+    code-summary: "Show the code"
+    code-download: true
+    toc: true
+    code-line-numbers: true
+    other-links:
+      - text: Opendata 
+        href: https://opendata.swiss/de
+      - text: Vorläufige Disposition
+        href: https://github.com/PrWR-I-24-27/Projektauftrag2_Jakub_Lucien_Luca/blob/dev/README.md
+
+  pdf:
+    documentclass: scrreprt
+    papersize: letter
+    classoption: 
+      - "DIV=11"
+    number-sections: true
+    toc: true
+    top-level-division: chapter
+    crossref:
+      chapters: true
+    header-includes:
+      - "\\KOMAoption{captions}{tableheading}"
+    block-headings: true
+    code-line-numbers: true
+    break-at-whitespace: true
+
+execute:
+  freeze: auto
