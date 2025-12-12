@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,10 +23,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -40,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-fbb27ab3f4425a88d9682c2047e7f75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -71,6 +106,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -82,8 +120,6 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Auswirkungen des ÖV auf die Kosten des Wohnens</span>
     </a>
@@ -121,10 +157,6 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -186,6 +218,357 @@ ul.task-list li input[type="checkbox"] {
 <section id="willkomen-in-das-quarto-buch" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Willkomen in das Quarto-Buch</h1>
 <p>This is the main page of the Quarto book. More content will be added here.</p>
+<div id="15f26c7e" class="cell" data-execution_count="56">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="9d0821b7" class="cell" data-execution_count="25">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># brauchts für die HeatMap</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">def</span> lv95_to_wgs84(E, N):</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    y <span class="op">=</span> (E <span class="op">-</span> <span class="fl">2600000.0</span>) <span class="op">/</span> <span class="fl">1000000.0</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    x <span class="op">=</span> (N <span class="op">-</span> <span class="fl">1200000.0</span>) <span class="op">/</span> <span class="fl">1000000.0</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>    lat <span class="op">=</span> <span class="fl">16.9023892</span> <span class="op">+</span> <span class="fl">3.238272</span> <span class="op">*</span> x <span class="op">-</span> <span class="fl">0.270978</span> <span class="op">*</span> y<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">0.002528</span> <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">0.0447</span> <span class="op">*</span> y<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> x <span class="op">-</span> <span class="fl">0.0140</span> <span class="op">*</span> x<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>    lon <span class="op">=</span> <span class="fl">2.6779094</span> <span class="op">+</span> <span class="fl">4.728982</span> <span class="op">*</span> y <span class="op">+</span> <span class="fl">0.791484</span> <span class="op">*</span> y <span class="op">*</span> x <span class="op">+</span> <span class="fl">0.1306</span> <span class="op">*</span> y <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="fl">0.0436</span> <span class="op">*</span> y<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>    lat <span class="op">=</span> lat <span class="op">*</span> <span class="dv">100</span><span class="op">/</span><span class="dv">36</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>    lon <span class="op">=</span> lon <span class="op">*</span> <span class="dv">100</span><span class="op">/</span><span class="dv">36</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="cf">return</span> lat, lon</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a>df_zug_schweiz <span class="op">=</span> pd.read_csv(<span class="st">"data/stop-points-today_Schweiz.csv"</span>, sep<span class="op">=</span><span class="st">";"</span>, dtype<span class="op">=</span><span class="bu">str</span>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a>df_zug_schweiz[<span class="st">"E-Koordinate"</span>] <span class="op">=</span> df_zug_schweiz[<span class="st">"E-Koordinate"</span>].astype(<span class="bu">float</span>)</span>
+<span id="cb2-13"><a href="#cb2-13"></a>df_zug_schweiz[<span class="st">"N-Koordinate"</span>] <span class="op">=</span> df_zug_schweiz[<span class="st">"N-Koordinate"</span>].astype(<span class="bu">float</span>)</span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co"># LV95 zu WGS84 Umrechnung wegen LV95 fast nur Schweiz ist</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>df_zug_schweiz[<span class="st">"lat"</span>], df_zug_schweiz[<span class="st">"lon"</span>] <span class="op">=</span> <span class="bu">zip</span>(<span class="op">*</span>df_zug_schweiz.<span class="bu">apply</span>(<span class="kw">lambda</span> row: lv95_to_wgs84(row[<span class="st">"E-Koordinate"</span>], row[<span class="st">"N-Koordinate"</span>]), axis<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a>fig <span class="op">=</span> px.density_map(</span>
+<span id="cb2-19"><a href="#cb2-19"></a>    df_zug_schweiz,</span>
+<span id="cb2-20"><a href="#cb2-20"></a>    lat<span class="op">=</span><span class="st">"lat"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21"></a>    lon<span class="op">=</span><span class="st">"lon"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    radius<span class="op">=</span><span class="fl">4.5</span>,</span>
+<span id="cb2-23"><a href="#cb2-23"></a>    center<span class="op">=</span>{<span class="st">"lat"</span>:<span class="fl">46.70</span>, <span class="st">"lon"</span>:<span class="fl">8.3</span>},</span>
+<span id="cb2-24"><a href="#cb2-24"></a>    zoom<span class="op">=</span><span class="dv">7</span>,</span>
+<span id="cb2-25"><a href="#cb2-25"></a>    map_style<span class="op">=</span><span class="st">"open-street-map"</span>,</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    opacity<span class="op">=</span><span class="fl">0.3</span>,</span>
+<span id="cb2-27"><a href="#cb2-27"></a>    title<span class="op">=</span><span class="st">"Heatmap der Haltestellen in der Schweiz"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28"></a>    width<span class="op">=</span><span class="dv">1000</span>,</span>
+<span id="cb2-29"><a href="#cb2-29"></a>    height<span class="op">=</span><span class="dv">750</span>,</span>
+<span id="cb2-30"><a href="#cb2-30"></a>    color_continuous_scale<span class="op">=</span><span class="st">"viridis"</span></span>
+<span id="cb2-31"><a href="#cb2-31"></a>)</span>
+<span id="cb2-32"><a href="#cb2-32"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+</div>
+<div id="59539859" class="cell" data-execution_count="79">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df_zug_zurich <span class="op">=</span> pd.read_csv(<span class="st">"data/stop-points-today_zurich.csv"</span>, sep<span class="op">=</span><span class="st">";"</span>, dtype<span class="op">=</span><span class="bu">str</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>df_zug_zurich[<span class="st">"E-Koordinate"</span>] <span class="op">=</span> df_zug_zurich[<span class="st">"E-Koordinate"</span>].astype(<span class="bu">float</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>df_zug_zurich[<span class="st">"N-Koordinate"</span>] <span class="op">=</span> df_zug_zurich[<span class="st">"N-Koordinate"</span>].astype(<span class="bu">float</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a>df_zug_zurich[<span class="st">"lat"</span>], df_zug_zurich[<span class="st">"lon"</span>] <span class="op">=</span> <span class="bu">zip</span>(<span class="op">*</span>df_zug_zurich.<span class="bu">apply</span>(<span class="kw">lambda</span> row: lv95_to_wgs84(row[<span class="st">"E-Koordinate"</span>], row[<span class="st">"N-Koordinate"</span>]), axis<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a>fig <span class="op">=</span> px.density_map(</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    df_zug_zurich,</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    lat<span class="op">=</span><span class="st">"lat"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    lon<span class="op">=</span><span class="st">"lon"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    radius<span class="op">=</span><span class="dv">9</span>,</span>
+<span id="cb4-12"><a href="#cb4-12"></a>    center<span class="op">=</span>{<span class="st">"lat"</span>:<span class="fl">47.40</span>, <span class="st">"lon"</span>:<span class="fl">8.65</span>},</span>
+<span id="cb4-13"><a href="#cb4-13"></a>    zoom<span class="op">=</span><span class="dv">9</span>,</span>
+<span id="cb4-14"><a href="#cb4-14"></a>    map_style<span class="op">=</span><span class="st">"open-street-map"</span>,</span>
+<span id="cb4-15"><a href="#cb4-15"></a>    opacity<span class="op">=</span><span class="fl">0.45</span>,</span>
+<span id="cb4-16"><a href="#cb4-16"></a>    title<span class="op">=</span><span class="st">"Heatmap der Haltestellen in der Schweiz"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17"></a>    width<span class="op">=</span><span class="dv">1000</span>,</span>
+<span id="cb4-18"><a href="#cb4-18"></a>    height<span class="op">=</span><span class="dv">750</span>,</span>
+<span id="cb4-19"><a href="#cb4-19"></a>    color_continuous_scale<span class="op">=</span><span class="st">"inferno"</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a>)</span>
+<span id="cb4-21"><a href="#cb4-21"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+</div>
+<div id="45d7f5dc" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df_Miet_alles <span class="op">=</span> pd.read_csv(<span class="st">"data/RegionalDaten3und4ZimmerMietpreisundProQuadratmeter.csv"</span>, sep<span class="op">=</span><span class="st">","</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>df_Miet_Selekt<span class="op">=</span> df_Miet_alles[[<span class="st">"Region"</span>, <span class="st">"3-Zimmer_Gesamtmiete_CHF"</span>, <span class="st">"4-Zimmer_Gesamtmiete_CHF"</span>]]</span>
+<span id="cb6-3"><a href="#cb6-3"></a>df_Miet_Selekt </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Region</th>
+<th data-quarto-table-cell-role="th">3-Zimmer_Gesamtmiete_CHF</th>
+<th data-quarto-table-cell-role="th">4-Zimmer_Gesamtmiete_CHF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Schweiz</td>
+<td>1370</td>
+<td>1630</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Kanton Zürich</td>
+<td>1620</td>
+<td>1910</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Winterthur Stadt</td>
+<td>1440</td>
+<td>1690</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Winterthur Umland</td>
+<td>1440</td>
+<td>1720</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Weinland</td>
+<td>1500</td>
+<td>1680</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Zürcher Unterland</td>
+<td>1510</td>
+<td>1780</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>Zürcher Oberland</td>
+<td>1520</td>
+<td>1790</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>Furttal</td>
+<td>1530</td>
+<td>1790</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>Limmattal</td>
+<td>1550</td>
+<td>1850</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>Knonaueramt</td>
+<td>1590</td>
+<td>1890</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>Glattal</td>
+<td>1650</td>
+<td>1890</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>Stadt Zürich</td>
+<td>1700</td>
+<td>2010</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>Zimmerberg</td>
+<td>1680</td>
+<td>2040</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">13</th>
+<td>Pfannenstiel</td>
+<td>1770</td>
+<td>2180</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="3db5883c" class="cell" data-execution_count="54">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df_Miet_Selekt<span class="op">=</span> df_Miet_alles[[<span class="st">"Region"</span>, <span class="st">"3-Zimmer_Gesamtmiete_CHF"</span>, <span class="st">"4-Zimmer_Gesamtmiete_CHF"</span>]]</span>
+<span id="cb7-2"><a href="#cb7-2"></a>df_Miet_Selekt <span class="op">=</span> df_Miet_Selekt.set_index(<span class="st">'Region'</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>df_Miet_Selekt <span class="op">=</span> df_Miet_Selekt.drop(<span class="st">"Kanton Zürich"</span>, errors<span class="op">=</span><span class="st">'ignore'</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a>regions <span class="op">=</span> df_Miet_Selekt.index</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a>colors <span class="op">=</span> [<span class="st">"#35fb7c"</span>] <span class="op">*</span> <span class="bu">len</span>(regions)</span>
+<span id="cb7-8"><a href="#cb7-8"></a>colors_2 <span class="op">=</span> [<span class="st">"#33d463"</span>] <span class="op">*</span> <span class="bu">len</span>(regions)</span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a>specials <span class="op">=</span> {<span class="st">"Schweiz"</span>: <span class="st">"red"</span>}</span>
+<span id="cb7-11"><a href="#cb7-11"></a>specials_2 <span class="op">=</span> {<span class="st">"Schweiz"</span>: <span class="st">"darkred"</span>}</span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="cf">for</span> i, region <span class="kw">in</span> <span class="bu">enumerate</span>(regions):</span>
+<span id="cb7-14"><a href="#cb7-14"></a>    <span class="cf">if</span> region <span class="kw">in</span> specials:</span>
+<span id="cb7-15"><a href="#cb7-15"></a>        colors[i] <span class="op">=</span> specials[region]</span>
+<span id="cb7-16"><a href="#cb7-16"></a>    <span class="cf">if</span> region <span class="kw">in</span> specials_2:</span>
+<span id="cb7-17"><a href="#cb7-17"></a>        colors_2[i] <span class="op">=</span> specials_2[region]</span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a>ax <span class="op">=</span> df_Miet_Selekt[<span class="st">'4-Zimmer_Gesamtmiete_CHF'</span>].sort_values(ascending<span class="op">=</span><span class="va">True</span>).plot(</span>
+<span id="cb7-20"><a href="#cb7-20"></a>    kind<span class="op">=</span><span class="st">'bar'</span>, </span>
+<span id="cb7-21"><a href="#cb7-21"></a>    figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>),</span>
+<span id="cb7-22"><a href="#cb7-22"></a>    rot<span class="op">=</span><span class="dv">90</span>,</span>
+<span id="cb7-23"><a href="#cb7-23"></a>    color<span class="op">=</span>colors</span>
+<span id="cb7-24"><a href="#cb7-24"></a>)</span>
+<span id="cb7-25"><a href="#cb7-25"></a></span>
+<span id="cb7-26"><a href="#cb7-26"></a>df_Miet_Selekt[<span class="st">'3-Zimmer_Gesamtmiete_CHF'</span>].sort_values(ascending<span class="op">=</span><span class="va">True</span>).plot(</span>
+<span id="cb7-27"><a href="#cb7-27"></a>    kind<span class="op">=</span><span class="st">'bar'</span>, </span>
+<span id="cb7-28"><a href="#cb7-28"></a>    ax<span class="op">=</span>ax,</span>
+<span id="cb7-29"><a href="#cb7-29"></a>    rot<span class="op">=</span><span class="dv">75</span>, </span>
+<span id="cb7-30"><a href="#cb7-30"></a>    color<span class="op">=</span>colors_2,</span>
+<span id="cb7-31"><a href="#cb7-31"></a>    label<span class="op">=</span><span class="st">'3-Zimmer'</span></span>
+<span id="cb7-32"><a href="#cb7-32"></a>)</span>
+<span id="cb7-33"><a href="#cb7-33"></a></span>
+<span id="cb7-34"><a href="#cb7-34"></a>plt.title(<span class="st">'Durchschnittliche Miete von 3 und 4 Zimmer Wohnungen'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb7-35"><a href="#cb7-35"></a>plt.ylabel(<span class="st">'Gesamtmiete (CHF)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb7-36"><a href="#cb7-36"></a>plt.xlabel(<span class="st">'Region'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb7-37"><a href="#cb7-37"></a>legend_handles <span class="op">=</span> [</span>
+<span id="cb7-38"><a href="#cb7-38"></a>    mpatches.Patch(color<span class="op">=</span><span class="st">"#35fb7c"</span>, label<span class="op">=</span><span class="st">'4-Zimmer'</span>),</span>
+<span id="cb7-39"><a href="#cb7-39"></a>    mpatches.Patch(color<span class="op">=</span><span class="st">"#33d463"</span>, label<span class="op">=</span><span class="st">'3-Zimmer'</span>)</span>
+<span id="cb7-40"><a href="#cb7-40"></a>]</span>
+<span id="cb7-41"><a href="#cb7-41"></a>plt.legend(handles<span class="op">=</span>legend_handles, title<span class="op">=</span><span class="st">'Art der Wohnung'</span>)</span>
+<span id="cb7-42"><a href="#cb7-42"></a></span>
+<span id="cb7-43"><a href="#cb7-43"></a>plt.tight_layout()</span>
+<span id="cb7-44"><a href="#cb7-44"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="11f9d75b" class="cell" data-execution_count="55">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df_haltestellen <span class="op">=</span> pd.read_csv(<span class="st">"data/stop-points-today_zurich.csv"</span>, sep<span class="op">=</span><span class="st">";"</span>, dtype<span class="op">=</span><span class="bu">str</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>df_gemeinden <span class="op">=</span> pd.read_csv(<span class="st">"data/gemeinde_region.csv"</span>, sep<span class="op">=</span><span class="st">","</span>, dtype<span class="op">=</span><span class="bu">str</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>df_gemeinden</span>
+<span id="cb8-4"><a href="#cb8-4"></a>df_beide <span class="op">=</span> df_haltestellen.merge(</span>
+<span id="cb8-5"><a href="#cb8-5"></a>    df_gemeinden[[<span class="st">'BFS'</span>, <span class="st">'Planungsregion'</span>]],</span>
+<span id="cb8-6"><a href="#cb8-6"></a>    left_on<span class="op">=</span><span class="st">'Gemeindenummer BFS'</span>,</span>
+<span id="cb8-7"><a href="#cb8-7"></a>    right_on<span class="op">=</span><span class="st">'BFS'</span>,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>    how<span class="op">=</span><span class="st">'left'</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>)</span>
+<span id="cb8-10"><a href="#cb8-10"></a>counts <span class="op">=</span> df_beide.groupby(<span class="st">'Planungsregion'</span>).size().sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-11"><a href="#cb8-11"></a></span>
+<span id="cb8-12"><a href="#cb8-12"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">7</span>))</span>
+<span id="cb8-13"><a href="#cb8-13"></a></span>
+<span id="cb8-14"><a href="#cb8-14"></a>colors <span class="op">=</span> plt.cm.viridis(np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="bu">len</span>(counts)))</span>
+<span id="cb8-15"><a href="#cb8-15"></a></span>
+<span id="cb8-16"><a href="#cb8-16"></a>plt.bar(counts.index, counts.values, color<span class="op">=</span>colors)</span>
+<span id="cb8-17"><a href="#cb8-17"></a></span>
+<span id="cb8-18"><a href="#cb8-18"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb8-19"><a href="#cb8-19"></a>plt.title(<span class="st">"ÖV-Haltestellen pro Planungsregion"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb8-20"><a href="#cb8-20"></a>plt.ylabel(<span class="st">"Anzahl Haltestellen"</span>)</span>
+<span id="cb8-21"><a href="#cb8-21"></a></span>
+<span id="cb8-22"><a href="#cb8-22"></a>plt.tight_layout()</span>
+<span id="cb8-23"><a href="#cb8-23"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="59d9f696" class="cell" data-execution_count="73">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df_Miet_Selekt <span class="op">=</span> df_Miet_alles[[<span class="st">"Region"</span>, <span class="st">"3-Zimmer_Gesamtmiete_CHF"</span>, <span class="st">"4-Zimmer_Gesamtmiete_CHF"</span>]]</span>
+<span id="cb9-2"><a href="#cb9-2"></a>df_Miet_Selekt <span class="op">=</span> df_Miet_Selekt.set_index(<span class="st">'Region'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>df_haltestellen <span class="op">=</span> pd.read_csv(<span class="st">"data/stop-points-today_zurich.csv"</span>, sep<span class="op">=</span><span class="st">";"</span>, dtype<span class="op">=</span><span class="bu">str</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a>df_gemeinden <span class="op">=</span> pd.read_csv(<span class="st">"data/gemeinde_region.csv"</span>, sep<span class="op">=</span><span class="st">","</span>, dtype<span class="op">=</span><span class="bu">str</span>)</span>
+<span id="cb9-5"><a href="#cb9-5"></a>df_beide <span class="op">=</span> df_haltestellen.merge(</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    df_gemeinden[[<span class="st">'BFS'</span>, <span class="st">'Planungsregion'</span>]],</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    left_on<span class="op">=</span><span class="st">'Gemeindenummer BFS'</span>,</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    right_on<span class="op">=</span><span class="st">'BFS'</span>,</span>
+<span id="cb9-9"><a href="#cb9-9"></a>    how<span class="op">=</span><span class="st">'left'</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>)</span>
+<span id="cb9-11"><a href="#cb9-11"></a>df_haltestellen_count <span class="op">=</span> df_beide.groupby(<span class="st">'Planungsregion'</span>).size().reset_index(name<span class="op">=</span><span class="st">'Haltestellen'</span>)</span>
+<span id="cb9-12"><a href="#cb9-12"></a>df_plot <span class="op">=</span> df_Miet_Selekt.merge(df_haltestellen_count, left_index<span class="op">=</span><span class="va">True</span>, right_on<span class="op">=</span><span class="st">'Planungsregion'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb9-13"><a href="#cb9-13"></a>df_plot <span class="op">=</span> df_plot[df_plot[<span class="st">'Planungsregion'</span>] <span class="op">!=</span> <span class="st">'Kanton Zürich'</span>]</span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">9</span>))</span>
+<span id="cb9-16"><a href="#cb9-16"></a></span>
+<span id="cb9-17"><a href="#cb9-17"></a>sns.scatterplot(</span>
+<span id="cb9-18"><a href="#cb9-18"></a>    data<span class="op">=</span>df_plot,</span>
+<span id="cb9-19"><a href="#cb9-19"></a>    x<span class="op">=</span><span class="st">'Haltestellen'</span>,</span>
+<span id="cb9-20"><a href="#cb9-20"></a>    y<span class="op">=</span><span class="st">'4-Zimmer_Gesamtmiete_CHF'</span>,</span>
+<span id="cb9-21"><a href="#cb9-21"></a>    s<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb9-22"><a href="#cb9-22"></a>    color<span class="op">=</span><span class="st">"#4535fb"</span>,</span>
+<span id="cb9-23"><a href="#cb9-23"></a>    label<span class="op">=</span><span class="st">'4-Zimmer'</span></span>
+<span id="cb9-24"><a href="#cb9-24"></a>)</span>
+<span id="cb9-25"><a href="#cb9-25"></a></span>
+<span id="cb9-26"><a href="#cb9-26"></a>sns.scatterplot(</span>
+<span id="cb9-27"><a href="#cb9-27"></a>    data<span class="op">=</span>df_plot,</span>
+<span id="cb9-28"><a href="#cb9-28"></a>    x<span class="op">=</span><span class="st">'Haltestellen'</span>,</span>
+<span id="cb9-29"><a href="#cb9-29"></a>    y<span class="op">=</span><span class="st">'3-Zimmer_Gesamtmiete_CHF'</span>,</span>
+<span id="cb9-30"><a href="#cb9-30"></a>    s<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb9-31"><a href="#cb9-31"></a>    color<span class="op">=</span><span class="st">"#d49133"</span>,</span>
+<span id="cb9-32"><a href="#cb9-32"></a>    label<span class="op">=</span><span class="st">'3-Zimmer'</span></span>
+<span id="cb9-33"><a href="#cb9-33"></a>)</span>
+<span id="cb9-34"><a href="#cb9-34"></a></span>
+<span id="cb9-35"><a href="#cb9-35"></a>avg_3_zimmer <span class="op">=</span> df_plot[<span class="st">'3-Zimmer_Gesamtmiete_CHF'</span>].mean()</span>
+<span id="cb9-36"><a href="#cb9-36"></a>avg_4_zimmer <span class="op">=</span> df_plot[<span class="st">'4-Zimmer_Gesamtmiete_CHF'</span>].mean()</span>
+<span id="cb9-37"><a href="#cb9-37"></a>avg_haltestellen <span class="op">=</span> df_plot[<span class="st">'Haltestellen'</span>].mean()</span>
+<span id="cb9-38"><a href="#cb9-38"></a></span>
+<span id="cb9-39"><a href="#cb9-39"></a>plt.scatter(avg_haltestellen, avg_4_zimmer, s<span class="op">=</span><span class="dv">150</span>, color<span class="op">=</span><span class="st">'blue'</span>, marker<span class="op">=</span><span class="st">'X'</span>, label<span class="op">=</span><span class="st">'Durchschnitt 4-Zimmer'</span>)</span>
+<span id="cb9-40"><a href="#cb9-40"></a>plt.scatter(avg_haltestellen, avg_3_zimmer, s<span class="op">=</span><span class="dv">150</span>, color<span class="op">=</span><span class="st">'orange'</span>, marker<span class="op">=</span><span class="st">'X'</span>, label<span class="op">=</span><span class="st">'Durchschnitt 3-Zimmer'</span>)</span>
+<span id="cb9-41"><a href="#cb9-41"></a></span>
+<span id="cb9-42"><a href="#cb9-42"></a>x_max <span class="op">=</span> df_plot[<span class="st">'Haltestellen'</span>].<span class="bu">max</span>()</span>
+<span id="cb9-43"><a href="#cb9-43"></a></span>
+<span id="cb9-44"><a href="#cb9-44"></a><span class="cf">for</span> i, row <span class="kw">in</span> df_plot.iterrows():</span>
+<span id="cb9-45"><a href="#cb9-45"></a>    x_offset_4 <span class="op">=</span> <span class="dv">7</span> <span class="cf">if</span> row[<span class="st">'Haltestellen'</span>] <span class="op">&lt;</span> x_max <span class="op">-</span> <span class="dv">20</span> <span class="cf">else</span> <span class="op">-</span><span class="dv">30</span></span>
+<span id="cb9-46"><a href="#cb9-46"></a>    x_offset_3 <span class="op">=</span> <span class="dv">2</span> <span class="cf">if</span> row[<span class="st">'Haltestellen'</span>] <span class="op">&lt;</span> x_max <span class="op">-</span> <span class="dv">20</span> <span class="cf">else</span> <span class="op">-</span><span class="dv">30</span></span>
+<span id="cb9-47"><a href="#cb9-47"></a>    </span>
+<span id="cb9-48"><a href="#cb9-48"></a>    plt.text(row[<span class="st">'Haltestellen'</span>] <span class="op">+</span> x_offset_4, row[<span class="st">'4-Zimmer_Gesamtmiete_CHF'</span>], row[<span class="st">'Planungsregion'</span>], fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb9-49"><a href="#cb9-49"></a>    plt.text(row[<span class="st">'Haltestellen'</span>] <span class="op">+</span> x_offset_3, row[<span class="st">'3-Zimmer_Gesamtmiete_CHF'</span>], row[<span class="st">'Planungsregion'</span>], fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb9-50"><a href="#cb9-50"></a></span>
+<span id="cb9-51"><a href="#cb9-51"></a></span>
+<span id="cb9-52"><a href="#cb9-52"></a>plt.title(<span class="st">'Zusammenhang: Anzahl Haltestellen vs. Durchschnittsmiete'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb9-53"><a href="#cb9-53"></a>plt.xlabel(<span class="st">'Anzahl Haltestellen'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb9-54"><a href="#cb9-54"></a>plt.ylabel(<span class="st">'Gesamtmiete (CHF)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb9-55"><a href="#cb9-55"></a>plt.legend(title<span class="op">=</span><span class="st">'Art Wohnung'</span>)</span>
+<span id="cb9-56"><a href="#cb9-56"></a>plt.tight_layout()</span>
+<span id="cb9-57"><a href="#cb9-57"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
