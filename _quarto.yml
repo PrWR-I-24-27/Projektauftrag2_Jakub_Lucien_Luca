@@ -11,8 +11,8 @@ book:
   
   date: "24.10.2025"
   chapters:
-    - index.ipynb
-  
+    - index.ipynb  
+
   downloads: [pdf]
   navbar: 
     right: 
@@ -26,12 +26,14 @@ format:
   html:
     theme:
       - zephyr
-      - brand
     code-fold: true
     code-summary: "Show the code"
-    code-download: true
+    code-download: false
     toc: true
+    sidebar: false
     code-line-numbers: true
+    code-overflow: wrap
+
     other-links:
       - text: Opendata 
         href: https://opendata.swiss/de
@@ -40,6 +42,9 @@ format:
 
   pdf:
     documentclass: scrreprt
+    fig-pos: 'H'
+    fig-width: 6
+    fig-asp: 0.618
     papersize: letter
     classoption: 
       - "DIV=11"
@@ -50,9 +55,17 @@ format:
       chapters: true
     header-includes:
       - "\\KOMAoption{captions}{tableheading}"
+      - "\\usepackage{float}"
+      - "\\floatplacement{figure}{H}" # Zwingt alle Bilder auf H
+      - |
+        \renewcommand{\topfraction}{.85}
+        \renewcommand{\bottomfraction}{.7}
+        \renewcommand{\textfraction}{.15}
+        \renewcommand{\floatpagefraction}{.66}
     block-headings: true
     code-line-numbers: true
     break-at-whitespace: true
+    echo: false
 
 execute:
   freeze: auto
